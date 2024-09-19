@@ -9,10 +9,11 @@ import {
 import { Button } from "../ui/button";
 
 
-const FollowCard = async () => {
+const FollowCard = async ({userId}: {userId: string}) => {
 
-  const userResponse = await fetch(`https://dummyjson.com/users/1`);
+  const userResponse = await fetch(`https://dummyjson.com/users/${userId}`);
   const user = await userResponse.json();
+
   return (
     <Card className="w-[345px] border flex justify-between items-center p-4 rounded-2xl">
       <div className="flex gap-3 items-center">
