@@ -57,6 +57,7 @@ const config: Config = {
         gradientB: "var(--card-gradient)",
         gradientC: "var(--alt-card-gradient)",
         gradientD: "var(--skeleton-gradient)",
+        gradientE: "var(--spinner-gradient)",
       },
       borderRadius: {
         lg: "var(--radius)",

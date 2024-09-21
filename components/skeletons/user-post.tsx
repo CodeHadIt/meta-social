@@ -2,10 +2,10 @@ import {
     Card
 } from "@/components/ui/card";
 
-const UserPostSkeleton = async () => {
+const UserPostSkeleton = () => {
 
   return (
-    <Card className="w-[340px] border flex flex-col justify-center items-start rounded-2xl">
+    <Card className="w-[340px] md:min-w-full border flex flex-col justify-center items-start rounded-2xl">
       <div className="flex gap-3 p-4">
         <div className="rounded-full w-10 h-10 bg-gradientD bg-[position:-500px_0] bg-[size:500px_100%] animate-skeleton"></div>
 

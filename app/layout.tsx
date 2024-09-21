@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Roboto_Flex } from "next/font/google"
+import { Roboto_Flex } from "next/font/google";
 import "./globals.css";
+import QueryProvider from "@/providers";
 
-const robotoFlex = Roboto_Flex({ subsets: ["latin"]})
+const robotoFlex = Roboto_Flex({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Meta-Social",
@@ -16,10 +17,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${robotoFlex.className} antialiased font-medium`}
-      >
-        {children}
+      <body className={`${robotoFlex.className} antialiased font-medium`}>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );

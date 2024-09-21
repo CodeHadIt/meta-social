@@ -6,12 +6,30 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
-  --btn-gradient: linear-gradient(180deg, #FF0073 -85.89%, #811AB8 34.45%, #4426D9 100%);
-  --card-gradient: linear-gradient(102.78deg, #ECE9FB 0.31%, #FDEDE7 82.87%);
-  --alt-card-gradient: linear-gradient(180deg, #FFFFFF 0%, #FFFAF5 100%);
-  --skeleton-gradient: linear-gradient(110deg, #EBEDEE 8%, #F9FAFA 18%, #EBEDEE 33%);
-
-
+  --btn-gradient: linear-gradient(
+    180deg,
+    #ff0073 -85.89%,
+    #811ab8 34.45%,
+    #4426d9 100%
+  );
+  --card-gradient: linear-gradient(102.78deg, #ece9fb 0.31%, #fdede7 82.87%);
+  --alt-card-gradient: linear-gradient(180deg, #ffffff 0%, #fffaf5 100%);
+  --skeleton-gradient: linear-gradient(
+    110deg,
+    #ebedee 8%,
+    #f9fafa 18%,
+    #ebedee 33%
+  );
+  --spinner-gradient: conic-gradient(
+    from 95.5deg at 50% 50%,
+    #ffffff,
+    #ffffff,
+    #fffaf5,
+    #aaa,
+    #aaa,
+    #555,
+    black
+  );
 }
 
 body {
