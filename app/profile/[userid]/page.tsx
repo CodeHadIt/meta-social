@@ -22,7 +22,7 @@ export async function generateMetadata({
   const product: User = await response.json();
 
   return {
-    title: `Meta-Social | ${product.firstName} ${product.lastName} (@${product.username})`,
+    title: `${product.firstName} ${product.lastName} (@${product.username}) | Meta-Social`,
   };
 }
 
