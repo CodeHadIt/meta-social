@@ -1,3 +1,4 @@
+import { UserToFollow } from "@/types";
 import FollowCard from "./cards/follow";
 import NotFoundCard from "./cards/not-found";
 
@@ -35,15 +36,54 @@ const UsersFollow = async () => {
     )
     .slice(0, 4);
 
-  const topFollows = cleanedUserPostCount.map((user: userPostCount) => (
-    <FollowCard key={user.userId} userId={user.userId} />
-  ));
-
-  return (
-    <div className="flex flex-col md:flex-row flex-wrap gap-4">
-      {topFollows}
-    </div>
+  const usersToFollow = await Promise.all(
+    cleanedUserPostCount.map(async (user) => {
+      const userResponse = await fetch(
+        `https://dummyjson.com/users/${user.userId}?select=firstName,lastName,username`
+      );
+      //Check if the response for each user is valid for granular error handling
+      //  if there was a problem fetching any given user, we populate the return array with null.
+      if (!userResponse.ok) {
+        return null;
+      } else {
+        const currentuser: UserToFollow = await userResponse.json();
+        return currentuser;
+      }
+    })
   );
+
+  //Check if fectch for every single user erred.
+  //  If they err, we show error message
+  //  If at least one doesnt err, we still show the component
+  const allErred = usersToFollow.every((user) => user === null);
+
+  if (allErred) {
+    return <NotFoundCard purpose="error" dataType="user" />;
+  } else {
+    let topFollows: JSX.Element[];
+
+    //Check if at least one erred, if so, filter the userToFollow array.
+    const someErred = usersToFollow.some((user) => user === null);
+
+    if (someErred) {
+      //If at least one user erred, we filter the array to remove them before rendering
+      const filteredUsersToFollow = usersToFollow.filter(
+        (user) => user !== null
+      );
+      topFollows = filteredUsersToFollow.map((user) => (
+        <FollowCard key={user!.id} user={user} />
+      ));
+    } else {
+      topFollows = usersToFollow.map((user) => (
+        <FollowCard key={user!.id} user={user} />
+      ));
+    }
+    return (
+      <div className="flex flex-col md:flex-row flex-wrap gap-4">
+        {topFollows}
+      </div>
+    );
+  }
 };
 
 export default UsersFollow;

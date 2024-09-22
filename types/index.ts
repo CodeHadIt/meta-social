@@ -88,3 +88,10 @@ export type PostResponse = {
   limit: number;
 };
 
+export type UserToFollow = {
+  id: string;
+  firstName: string;
+  lastName: string;
+  username: string;
+}
+

@@ -13,13 +13,21 @@ const UserPostCard = ({ post }: pageProps) => {
   return (
     <Card className="max-w-[340px] md:min-w-full border flex flex-col justify-center items-start text-center rounded-2xl">
       <CardContent className="flex gap-3 p-4">
-        <Link href={`/profile/${post.userId}`} className="">
-          <Image
-            src={userAvatar}
-            alt="meta-social_user_avatar"
-            className="rounded-full w-10 h-10 hover:opacity-50"
-          />
-        </Link>
+        <div className="flex flex-col justify-between">
+          <Link
+            href={`/profile/${post.userId}`}
+            className="rounded-full w-10 h-10 relative"
+          >
+            <Image
+              src={userAvatar}
+              alt="meta-social_user_avatar"
+              className="rounded-full hover:opacity-50"
+              fill
+              sizes="40px"
+            />
+          </Link>
+          <div className="w-full h-auto"></div>
+        </div>
         <div className="flex flex-col gap-3 text-left">
           <div className="">
             <Link href={`/profile/${post.userId}`}>
@@ -37,6 +45,7 @@ const UserPostCard = ({ post }: pageProps) => {
           </div>
 
           <p className="text-muted-foreground text-sm font-medium max-w-[260px] md:max-w-[calc(100%-12px)]">
+            {/* uncomment and use if you want to truncate post length  */}
             {/* {post.body.substring(0, 201)}{"..."} */}
             {post.body}
           </p>

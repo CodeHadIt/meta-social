@@ -10,15 +10,27 @@ import {
 } from "@/components/ui/card";
 import { PostResponse, User, UserPost } from "@/types";
 import { MapPin } from "lucide-react";
+import NotFoundCard from "./not-found";
 
-const UserProfileCard = async ({userId}: {userId: string}) => {
-
+const UserProfileCard = async ({ userId }: { userId: string }) => {
   const userResponse = await fetch(`https://dummyjson.com/users/${userId}`);
+  if (!userResponse.ok) {
+    return <NotFoundCard purpose="error" dataType="user" />;
+  }
   const user: User = await userResponse.json();
-  const postResponse = await fetch(`https://dummyjson.com/posts/user/${userId}`);
+
+  const postResponse = await fetch(
+    `https://dummyjson.com/posts/user/${userId}`
+  );
+  if (!postResponse.ok) {
+    return <NotFoundCard purpose="error" dataType="user" />;
+  }
   const posts: PostResponse = await postResponse.json();
 
-  const totalLikes = posts.posts.reduce((acc: number, post: UserPost) => acc + post.reactions.likes, 0);
+  const totalLikes = posts.posts.reduce(
+    (acc: number, post: UserPost) => acc + post.reactions.likes,
+    0
+  );
 
   return (
     <Card className="max-w-[345px] md:min-w-[670px] flex flex-col justify-center items-center">
@@ -81,6 +93,6 @@ const UserProfileCard = async ({userId}: {userId: string}) => {
       </CardFooter>
     </Card>
   );
-}
+};
 
 export default UserProfileCard;

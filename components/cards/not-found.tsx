@@ -9,7 +9,7 @@ interface PageProps {
 
 const NotFoundCard = ({ purpose, dataType, route }: PageProps) => {
   return (
-    <Card className="p-6 flex flex-col justify-center items-center text-center gap-6">
+    <Card className="p-6 md:min-w-[700px] flex flex-col justify-center items-center text-center gap-6">
       <TriangleAlert size={50} className="text-muted-foreground" />
       {purpose === "notfound" && (
         <div>
