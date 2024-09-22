@@ -10,7 +10,7 @@ import {
   HydrationBoundary,
   QueryClient,
 } from "@tanstack/react-query";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 
 export default async function HomePage() {
   //Since React-Query uses hooks to fetch data client-side, it limits certain benefits of SSR

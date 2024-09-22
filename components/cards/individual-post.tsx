@@ -1,6 +1,6 @@
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import userAvatar from "@/public/images/Avatar.png";
-import { User, UserPost } from "@/types";
+import { UserPost } from "@/types";
 import { Eye, Send, ThumbsUp } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -12,8 +12,6 @@ interface pageProps {
 }
 
 const IndividualPostCard = ({ post }: pageProps) => {
-
-  
   return (
     <Card className="max-w-[340px] md:min-w-full border flex flex-col justify-center items-start text-center rounded-2xl">
       <CardContent className="flex gap-3 p-4">

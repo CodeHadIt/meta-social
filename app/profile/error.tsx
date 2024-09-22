@@ -6,7 +6,6 @@ import { useEffect } from "react";
 
 const Error = ({
   error,
-  reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;

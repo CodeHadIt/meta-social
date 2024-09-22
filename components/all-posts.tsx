@@ -9,7 +9,7 @@ import AllPostSkeleton from "./skeletons/all-posts-skeleton";
 import LoadingSpinner from "./ui/loading-spinner";
 
 const AllPosts = () => {
-  const { data, status, error, fetchNextPage, isFetching } = useInfiniteQuery({
+  const { data, status, fetchNextPage, isFetching } = useInfiniteQuery({
     queryKey: ["posts"],
     queryFn: ({ pageParam }) => fetchPosts(pageParam, 5),
     initialPageParam: 0,

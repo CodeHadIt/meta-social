@@ -11,7 +11,7 @@ import NoPostCard from "./cards/no-post";
 
 //Responsible for fetching and rending all of an individual's posts
 const AllIndividualUserPost = ({ userId }: { userId: string }) => {
-  const { data, status, error, fetchNextPage, isFetching, hasNextPage } =
+  const { data, status, fetchNextPage, isFetching } =
     useInfiniteQuery({
       queryKey: ["userpost"],
       queryFn: ({ pageParam }) => fetchPost(pageParam, 3, userId),
