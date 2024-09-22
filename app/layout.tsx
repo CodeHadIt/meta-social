@@ -6,7 +6,7 @@ import QueryProvider from "@/providers";
 const robotoFlex = Roboto_Flex({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Meta-Social",
+  title: "Meta-Social | Feed",
   description: "The decentralized social app of the future",
 };
 

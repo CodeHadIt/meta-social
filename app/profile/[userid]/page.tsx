@@ -3,12 +3,28 @@ import AllIndividualUserPost from "@/components/all-individual-user-posts";
 import UserProfileCard from "@/components/cards/user-profile";
 import ProfileHeader from "@/components/headers/profile";
 import UserProfileSkeleton from "@/components/skeletons/user-profile";
+import { User } from "@/types";
 import {
     dehydrate,
     HydrationBoundary,
     QueryClient,
 } from "@tanstack/react-query";
+import type { Metadata } from "next";
 import { Suspense } from "react";
+
+//Dynamically rended user metadata
+export async function generateMetadata({
+  params,
+}: {
+  params: { userid: string };
+}): Promise<Metadata> {
+  const response = await fetch(`https://dummyjson.com/users/${params.userid}`);
+  const product: User = await response.json();
+
+  return {
+    title: `Meta-Social | ${product.firstName} ${product.lastName} (@${product.username})`,
+  };
+}
 
 export default async function UserProfilePage({
   params,
