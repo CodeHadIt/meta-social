@@ -5,6 +5,10 @@ Welcome to Meta Social. Meta Social is a mock social media application built as 
 
 <img src="./public/images/app-screenshot.png" alt="meta-social_screenshot" width="300" style="display: block; margin: 0 auto;" />
 
+
+
+<p align="center" style="margin-top: 10px" >screenshot of what the app should look like on mobile.</p>
+
 ## Table of Contents
 
 - [Features](#features) ⚙️
