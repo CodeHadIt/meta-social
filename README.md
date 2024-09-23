@@ -3,7 +3,7 @@
 
 Welcome to Meta Social. Meta Social is a mock social media application built as a technical test for [Metaversal](https://www.metaversal.gg). It utilizes [Next.js](https://nextjs.org/docs), [Tailwind CSS](https://tailwindcss.com/), and [Typescript](https://www.typescriptlang.org/) to achieve a tiny but sleek peek into what a modern fullstack app looks like. 
 
-<img src="./public/images/app-screenshot.png" alt="meta-social_screenshot" width="300" style="display: block; margin: 0 auto;" />
+<img src="./public/images/app-screenshot.png" alt="meta-social_screenshot" width="300" style="display: block; margin: 0 auto;" align="center" />
 
 
 
