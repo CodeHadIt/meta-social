@@ -1,16 +1,17 @@
-import userAvatar from "@/public/images/Avatar.png";
-import Image from "next/image";
 import { Card } from "@/components/ui/card";
-import Link from "next/link";
-import { Button } from "../ui/button";
+
+import userAvatar from "@/public/images/Avatar.png";
 import { UserToFollow } from "@/types";
+import Image from "next/image";
+import Link from "next/link";
+import ActionDialog from "../common/action-dialog";
+
 
 interface PageProps {
   user: UserToFollow | null;
 }
 
 const FollowCard = async ({ user }: PageProps) => {
-
   return (
     <Card className="w-[325px] border flex justify-between items-center p-4 rounded-2xl">
       <div className="flex gap-3 items-center">
@@ -34,7 +35,8 @@ const FollowCard = async ({ user }: PageProps) => {
         </div>
       </div>
 
-      <Button variant="outline">Follow</Button>
+      <ActionDialog action="Follow" text="Follow" variant="outline" />
+
     </Card>
   );
 };

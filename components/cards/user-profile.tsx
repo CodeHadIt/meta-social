@@ -1,7 +1,6 @@
 import userAvatar from "@/public/images/Avatar.png";
 import Image from "next/image";
 
-import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
@@ -10,6 +9,7 @@ import {
 } from "@/components/ui/card";
 import { PostResponse, User, UserPost } from "@/types";
 import { MapPin } from "lucide-react";
+import ActionDialog from "../common/action-dialog";
 import NotFoundCard from "./not-found";
 
 const UserProfileCard = async ({ userId }: { userId: string }) => {
@@ -88,8 +88,8 @@ const UserProfileCard = async ({ userId }: { userId: string }) => {
         </div>
       </CardContent>
       <CardFooter className="w-full border-t px-4 py-6 rounded-b-xl bg-gradientC flex justify-center md:justify-start gap-2">
-        <Button className="bg-gradientA">Follow</Button>
-        <Button variant="outline">Message</Button>
+        <ActionDialog action="Follow" text="Follow" variant="default" />
+        <ActionDialog action="Message" text="Send A DM" variant="outline" />
       </CardFooter>
     </Card>
   );
